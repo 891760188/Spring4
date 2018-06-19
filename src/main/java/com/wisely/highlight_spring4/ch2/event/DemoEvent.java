@@ -2,6 +2,9 @@ package com.wisely.highlight_spring4.ch2.event;
 
 import org.springframework.context.ApplicationEvent;
 
+/**
+ * 自定义事件
+ */
 public class DemoEvent extends ApplicationEvent{
     private static final long serialVersionUID = 1L;
     private String msg;

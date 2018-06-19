@@ -11,6 +11,9 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
 
+/**
+ * 数据的注入方式
+ */
 @Configuration
 @ComponentScan("com.wisely.highlight_spring4.ch2.el")
 @PropertySource("classpath:test.properties")//7-注入配置文件
@@ -38,8 +41,8 @@ public class ElConfig {
 	private String bookName;
 
 	@Autowired
-	private Environment environment; //7
-	
+	private Environment environment; //7-可以从此处取出properties的值
+
 	@Bean //7 使用@value注入，需要配置这个备案
 	public static PropertySourcesPlaceholderConfigurer propertyConfigure() {
 		return new PropertySourcesPlaceholderConfigurer();
@@ -58,6 +61,9 @@ public class ElConfig {
 			System.out.println(IOUtils.toString(testUrl.getInputStream()));
 			System.out.println(bookName);
 			System.out.println(environment.getProperty("book.author"));
+
+			environment.toString();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

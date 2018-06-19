@@ -11,14 +11,14 @@ public class ScheduledTaskService {
 	
 	  private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-	  @Scheduled(fixedRate = 5000) //1
+	  @Scheduled(fixedRate = 5000) //1-è¿™æ˜¯ä¸€ä¸ªè®¡åˆ’ä»»åŠ¡
 	  public void reportCurrentTime() {
-	       System.out.println("Ã¿¸ôÎåÃëÖ´ĞĞÒ»´Î " + dateFormat.format(new Date()));
+	       System.out.println("æ¯éš”5ç§’æ‰§è¡Œä¸€æ¬¡ " + dateFormat.format(new Date()));
 	   }
 
-	  @Scheduled(cron = "0 28 11 ? * *"  ) //2
+	  @Scheduled(cron = "0 57 18 ? * *"  ) //2
 	  public void fixTimeExecution(){
-	      System.out.println("ÔÚÖ¸¶¨Ê±¼ä " + dateFormat.format(new Date())+"Ö´ĞĞ");
+	      System.out.println("åœ¨æŒ‡å®šæ—¶é—´æ‰§è¡Œ " + dateFormat.format(new Date())+"Ö´ï¿½ï¿½");
 	  }
 
 }

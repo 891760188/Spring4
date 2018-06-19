@@ -11,7 +11,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AwareService implements BeanNameAware,ResourceLoaderAware{//1
-	
+	//BeanNameAware获取容器中bean的名称
+	//ResourceLoaderAware获取资源加载器，加载外部资源
 	private String beanName;
 	private ResourceLoader loader;
 	
@@ -26,18 +27,13 @@ public class AwareService implements BeanNameAware,ResourceLoaderAware{//1
 	}
 	
 	public void outputResult(){
-		System.out.println("Bean������Ϊ��" + beanName);
-		
-		Resource resource = 
-				loader.getResource("classpath:com/wisely/highlight_spring4/ch3/aware/test.txt");
+		System.out.println("Bean的名称为" + beanName);
+		Resource resource = loader.getResource("classpath:test.txt");
 		try{
-			
-			System.out.println("ResourceLoader���ص��ļ�����Ϊ: " + IOUtils.toString(resource.getInputStream()));
-			
+			System.out.println("ResourceLoader加载的文件内容为: " + IOUtils.toString(resource.getInputStream()));
 		   }catch(IOException e){
 			e.printStackTrace();
 		   }
-	
 	}
 
 }
